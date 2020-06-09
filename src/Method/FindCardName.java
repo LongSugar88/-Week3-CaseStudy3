@@ -1,9 +1,6 @@
 package Method;
 
-import Controller.CardController;
-import Controller.GetConnection;
 import Model.Card;
-import User.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,9 +9,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GetCardByName {
+public class FindCardName {
     private static final String GET_CARD_BY_NAME = "SELECT * FROM card WHERE name LIKE ?;";
-    public List<Card> getCardByName(String name){
+    public static List<Card> getCardByName(String name){
         Card card = null;
         List<Card> myList = new ArrayList<>();
         try{

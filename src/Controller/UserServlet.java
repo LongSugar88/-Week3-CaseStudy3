@@ -14,17 +14,13 @@ import java.io.IOException;
 @WebServlet(name = "UserServlet", urlPatterns = "/myUser")
 public class UserServlet extends HttpServlet {
 
-    private CardController cardController;
-    public void init(){
-        cardController = new CardController();
-    }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String user_name = request.getParameter("username");
         String user_password = request.getParameter("password");
-         User user = cardController.getUserByName(user_name);
+         User user = UserController.getUserByName(user_name);
         if(user_password.equalsIgnoreCase(user.getPassword())){
             HttpSession httpSession = request.getSession();
             httpSession.setAttribute("role", user.getRole());

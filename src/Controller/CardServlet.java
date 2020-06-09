@@ -8,10 +8,7 @@ import java.io.IOException;
 
 @WebServlet(name = "CardServlet", urlPatterns = "/myCard")
 public class CardServlet extends HttpServlet {
-    private CardController cardController;
-    public void init(){
-        cardController = new CardController();
-    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action;
         action = request.getParameter("action");
@@ -22,7 +19,7 @@ public class CardServlet extends HttpServlet {
             case "...":
                 break;
             case "add":
-                AddCard.add(request, response);
+                AddNewCard.add(request, response);
                 break;
         }
     }

@@ -1,5 +1,6 @@
 package Controller;
 
+import Method.GetConnection;
 import User.User;
 
 import java.sql.Connection;
@@ -8,9 +9,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserController {
-    private final String GET_USER_BY_NAME = "select * from userInformation where name = ?";
-
-    public User getUserByName(String name){
+    private static final String GET_USER_BY_NAME = "select * from userInformation where name = ?";
+    public static User getUserByName(String name){
         User user = null;
         try{
             Connection connection = GetConnection.getConnect();

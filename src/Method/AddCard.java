@@ -5,7 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class AddNewCard {
+public class AddCard {
     private static final String ADD_NEW_CARD = "INSERT INTO card(id, name, price, quantity) VALUES (? , ?, ?, ?);";
     public static void addNewCard(Card card){
         CardController cardController = new CardController();
