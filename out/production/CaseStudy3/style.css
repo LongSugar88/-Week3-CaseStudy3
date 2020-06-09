@@ -1,0 +1,23 @@
+.ontop_header{
+    background-image: url('https://i.ytimg.com/vi/zKPtwXJlETI/maxresdefault.jpg');
+    height: 40px;
+    width: 100%;
+    line-height: 40px;
+    color: #fff;
+}
+.allcenter {
+    *zoom: 1;
+}
+.pull-left {
+    float: left;
+}
+.pull-right {
+    float: right!important;
+}
+.language_user {
+    list-style: none;
+    float: left;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+}
