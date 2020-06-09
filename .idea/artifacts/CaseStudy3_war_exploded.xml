@@ -8,7 +8,7 @@
           <element id="module-output" name="CaseStudy3" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="taglibs-standard-spec-1.2.5" />
+          <element id="library" level="project" name="mysql-connector-java-8.0.19" />
         </element>
       </element>
     </root>
