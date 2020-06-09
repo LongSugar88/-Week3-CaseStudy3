@@ -13,6 +13,7 @@ import java.io.IOException;
 
 @WebServlet(name = "UserServlet", urlPatterns = "/myUser")
 public class UserServlet extends HttpServlet {
+
     private CardController cardController;
     public void init(){
         cardController = new CardController();
