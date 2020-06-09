@@ -1,14 +1,12 @@
 package Method;
-
 import Controller.CardController;
 import Model.Card;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class AddNewCard {
-    private static final String ADD_NEW_CARD = "INSERT INTO card(id, name, price, quantity) VALUES (? , ?', ?, ?);";
+    private static final String ADD_NEW_CARD = "INSERT INTO card(id, name, price, quantity) VALUES (? , ?, ?, ?);";
     public static void addNewCard(Card card){
         CardController cardController = new CardController();
         String id = card.getId();
@@ -22,7 +20,7 @@ public class AddNewCard {
             preparedStatement.setString(2, name);
             preparedStatement.setString(3, price);
             preparedStatement.setString(4, quantity);
-            preparedStatement.executeQuery();
+            preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }

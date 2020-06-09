@@ -1,13 +1,26 @@
 package Controller;
-
+import Method.AddNewCard;
+import Model.Card;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 public class AddCard {
-    public void add(HttpServletRequest request, HttpServletResponse response){
-        String id = request.getParameter("id");
-        String name = request.getParameter("id");
-        String id = request.getParameter("id");
-        String id = request.getParameter("id");
+    public static void add(HttpServletRequest request, HttpServletResponse response){
+        String id = request.getParameter("newID");
+        String name = request.getParameter("newName");
+        Double price = Double.parseDouble(request.getParameter("newPrice"));
+        Integer quantity = Integer.parseInt(request.getParameter("newQuantity"));
+        Card card = new Card(id, name, price, quantity);
+        AddNewCard.addNewCard(card);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/FormAddNewCard.jsp");
+        try{
+            requestDispatcher.forward(request, response);
+        }
+        catch(IOException | ServletException e){
+            e.printStackTrace();
+        }
     }
 }

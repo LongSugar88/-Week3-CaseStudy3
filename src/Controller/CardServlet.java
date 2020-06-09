@@ -1,7 +1,4 @@
 package Controller;
-
-import Method.ShowFormAddNewCard;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,7 +22,7 @@ public class CardServlet extends HttpServlet {
             case "...":
                 break;
             case "add":
-
+                AddCard.add(request, response);
                 break;
         }
     }
@@ -39,6 +36,9 @@ public class CardServlet extends HttpServlet {
         }
         switch (action){
             case "add":
+                ShowFormAddNewCard.show(request, response);
+                break;
+            case "find":
                 ShowFormAddNewCard.show(request, response);
                 break;
             default:
