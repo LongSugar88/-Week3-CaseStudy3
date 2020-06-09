@@ -9,9 +9,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShowAllCard {
-    private final String GET_ALL_CARD = "SELECT * FROM card";
-    public List<Card> showAllCard() {
+public class AllCard {
+    private static final String GET_ALL_CARD = "SELECT * FROM card";
+    public static List<Card> showAllCard() {
         List<Card> mylist = new ArrayList<>();
         try {
             Connection connection = GetConnection.getConnect();

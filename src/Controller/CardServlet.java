@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet(name = "CardServlet", urlPatterns = "/myCard")
 public class CardServlet extends HttpServlet {
@@ -16,7 +17,8 @@ public class CardServlet extends HttpServlet {
             action= "";
         }
         switch (action){
-            case "...":
+            case "find":
+                FindCardByName.find(request, response);
                 break;
             case "add":
                 AddNewCard.add(request, response);
@@ -35,8 +37,14 @@ public class CardServlet extends HttpServlet {
             case "add":
                 ShowFormAddNewCard.show(request, response);
                 break;
+            case "delete":
+                try {
+                    DeleteCardByID.delete(request, response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             case "find":
-                ShowFormAddNewCard.show(request, response);
+                ShowFormFindCard.show(request, response);
                 break;
             default:
                 ShowListCard.show(request, response);

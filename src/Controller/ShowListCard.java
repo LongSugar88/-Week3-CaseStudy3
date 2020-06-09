@@ -1,5 +1,5 @@
 package Controller;
-import Controller.CardController;
+import Method.AllCard;
 import Model.Card;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,8 +10,7 @@ import java.util.List;
 
 public class ShowListCard {
     public static void show(HttpServletRequest request, HttpServletResponse response) {
-        CardController cardController = new CardController();
-        List<Card> myList = cardController.showAllCard();
+        List<Card> myList = AllCard.showAllCard();
         request.setAttribute("myCardList", myList);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/listCard.jsp");
         try {
