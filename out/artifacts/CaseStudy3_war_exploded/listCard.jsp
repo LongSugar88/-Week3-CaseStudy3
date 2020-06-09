@@ -22,14 +22,16 @@
 <body>
 <h1 style="color: deeppink">Long đẹp trai</h1>
 
-<a href="?action=creat">Add New User</a>
+<a href="?action=creat">Add New Card</a>
 <br>
-<a href="?action=find">Find User By ID</a>
+<a href="?action=find">Find Card By Name</a>
 <br>
 <table border ="1" cellpadding="5" style="border-collapse: collapse">
     <th>ID</th>
     <th>Name</th>
-    <th>Email</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th colspan="2">Option</th>
     <c:forEach items="${myCardList}" var= "mycard">
         <tr>
             <td>${mycard.id}</td>

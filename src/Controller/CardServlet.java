@@ -27,6 +27,9 @@ public class CardServlet extends HttpServlet {
         switch (action){
             case "...":
                 break;
+            case "add":
+
+                break;
         }
     }
 
@@ -41,20 +44,9 @@ public class CardServlet extends HttpServlet {
             case "add":
                 break;
             default:
-                showListCard(request, response);
+                ShowListCard.show(request, response);
                 break;
         }
     }
-    public void showListCard(HttpServletRequest request, HttpServletResponse response){
-        List<Card> myList = cardController.showAllCard();
-        request.setAttribute("myCardList", myList);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("listCard.jsp");
-        try{
-            requestDispatcher.forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+
 }
