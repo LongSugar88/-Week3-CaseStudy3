@@ -1,16 +1,13 @@
 package Controller;
 
-import Model.Card;
+import Method.ShowFormAddNewCard;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.awt.*;
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet(name = "CardServlet", urlPatterns = "/myCard")
 public class CardServlet extends HttpServlet {
@@ -42,6 +39,7 @@ public class CardServlet extends HttpServlet {
         }
         switch (action){
             case "add":
+                ShowFormAddNewCard.show(request, response);
                 break;
             default:
                 ShowListCard.show(request, response);

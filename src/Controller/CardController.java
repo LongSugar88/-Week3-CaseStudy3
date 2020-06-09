@@ -13,7 +13,6 @@ public class CardController {
     private String password = "131071";
     private final String GET_USER_BY_NAME = "select * from userInformation where name = ?";
     private final String GET_ALL_CARD = "select * from card";
-    private final String ADD_NEW_CARD = "INSERT INTO card(id, name, price, quantity) VALUES (? , ?', ?, ?);";
 
     public Connection getConnection(){
         Connection connection = null;
@@ -61,21 +60,5 @@ public class CardController {
         }
         return user;
     }
-    public void addNewCard(Card card){
-        String id = card.getId();
-        String name = card.getName();
-        String price = String.valueOf(card.getPrice());
-        String quantity = String.valueOf(card.getQuantity());
-        try{
-            Connection connection = getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement(ADD_NEW_CARD);
-            preparedStatement.setString(1, id);
-            preparedStatement.setString(2, name);
-            preparedStatement.setString(3, price);
-            preparedStatement.setString(4, quantity);
-            preparedStatement.executeQuery();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+
 }

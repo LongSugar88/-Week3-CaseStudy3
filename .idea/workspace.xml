@@ -6,14 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b002c383-b2a0-47c7-8f94-c3895e5b331d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/CaseStudy3_war_exploded/listCard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/CaseStudy3_war_exploded/listCard.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/CardServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CardServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/Admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/View/Admin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/View/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/listCard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/View/listCard.jsp" afterDir="false" />
-    </list>
+    <list default="true" id="b002c383-b2a0-47c7-8f94-c3895e5b331d" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,8 +16,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -169,7 +162,7 @@
       <updated>1591583755485</updated>
       <workItem from="1591583759738" duration="15197000" />
       <workItem from="1591623397842" duration="7588000" />
-      <workItem from="1591666009669" duration="6918000" />
+      <workItem from="1591666009669" duration="7649000" />
     </task>
     <servers />
   </component>
@@ -189,10 +182,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="488" y="82" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1591671639370" />
-    <state x="463" y="121" key="FileChooserDialogImpl" timestamp="1591671989829">
+    <state x="463" y="121" key="FileChooserDialogImpl" timestamp="1591674310193">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="121" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1591671989829" />
+    <state x="463" y="121" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1591674310193" />
     <state width="904" height="281" key="GridCell.Tab.0.bottom" timestamp="1591673215161">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
