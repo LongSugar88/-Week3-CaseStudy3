@@ -51,15 +51,26 @@
         }
         .card{
             position: relative;
+
         }
         .card_name{
-            position: absolute;
-            bottom: 0px;
+            position: relative;
             text-align: center;
+            height: 50px;
+        }
+        .card >.card_sell{
+            visibility: hidden;
+            position: absolute;
+            width: 100%;
+            bottom: 90px;
+            text-align: center;
+            color: white;
+        }
+        .card >.card_sell:hover{
+            visibility: visible;
+            background-color: rgba(255,175,194,0.54);
         }
         .card_price{
-            position: absolute;
-            bottom: 40px;
             background-color: rgba(174,255,238,0.54);
             width: 100%;
             left: 0px;
@@ -90,9 +101,9 @@
             <div class="pull-right">
                 <form method="post" action="/login">
                     <ul class="language_user" style="margin-left: 30px; display: inline">
-                        <li><button>Đăng ký</button></li>
+                        <li><a href="">Đăng ký</a></li>
                         <li>|</li>
-                        <li><button>Đăng nhập</button></li>
+                        <li><a href="http://localhost:8080/login">Đăng nhập</a></li>
                     </ul>
                 </form>
             </div>
@@ -148,13 +159,24 @@
         <div class="col-sm-9">
             <div class="row" >
                 <c:forEach items="${myCardList}" var= "mycard">
-                <div class="col-sm-3 card">
-                    <img src=${mycard.image} alt="">
-                    <div class="card_name">
-                        <b><p>${mycard.name}</p></b>
-                    </div>
-                    <div class="card_price">
-                        <b><p>Giá: ${mycard.price} VNĐ</p></b>
+                <div class="col-sm-3">
+                    <div class="card">
+                        <img src=${mycard.image} alt="">
+                        <div class="card_sell">
+                            <b><p>Mua hàng</p></b>
+                        </div>
+                        <div class="card_price">
+                            <b><p>Giá: ${mycard.price} VNĐ</p></b>
+                        </div>
+                        <div class="card_name">
+                            <b><p>${mycard.name}</p></b>
+                        </div>
+                        <form method="post">
+                            <div>
+                                <a href="http://localhost:8080/myCard?action=update&id=${mycard.id}">Update</a>
+                                <a href="http://localhost:8080/myCard?action=delete&id=${mycard.id}">Delete</a>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 </c:forEach>

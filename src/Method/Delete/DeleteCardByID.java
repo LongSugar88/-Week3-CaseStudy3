@@ -1,4 +1,6 @@
-package Method;
+package Method.Delete;
+
+import Method.ShowListCard;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -1,4 +1,5 @@
-package Method;
+package Method.Delete;
+import Method.GetConnection;
 import Model.Card;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
