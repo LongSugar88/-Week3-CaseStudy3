@@ -32,7 +32,8 @@ public class FindCard {
                 String card_name = resultSet.getString("name");
                 Double card_price = Double.parseDouble(resultSet.getString("price"));
                 Integer card_quantity = Integer.parseInt(resultSet.getString("quantity"));
-                card = new Card(card_id, card_name, card_price, card_quantity);
+                String card_image = resultSet.getString("image");
+                card = new Card(card_id, card_name, card_price, card_quantity, card_image);
                 myList.add(card);
             }
         } catch (SQLException e) {
@@ -53,7 +54,8 @@ public class FindCard {
                 String card_name = resultSet.getString("name");
                 Double card_price = Double.parseDouble(resultSet.getString("price"));
                 Integer card_quantity = Integer.parseInt(resultSet.getString("quantity"));
-                card = new Card(card_id, card_name, card_price, card_quantity);
+                String card_image = resultSet.getString("image");
+                card = new Card(card_id, card_name, card_price, card_quantity, card_image);
             }
         } catch (SQLException e) {
             e.printStackTrace();

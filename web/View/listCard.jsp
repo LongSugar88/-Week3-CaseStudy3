@@ -38,7 +38,7 @@
             <td>${mycard.name}</td>
             <td>${mycard.price}</td>
             <td>${mycard.quantity}</td>
-            <td><a href="?action=edit&id=${mycard.id}">Edit</a></td>
+            <td><a href="?action=update&id=${mycard.id}">Edit</a></td>
             <td><a href="?action=delete&id=${mycard.id}">Delete</a></td>
         </tr>
     </c:forEach>

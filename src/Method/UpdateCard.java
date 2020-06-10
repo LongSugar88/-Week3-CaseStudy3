@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class UpdateCard {
-    private static final String UPDATE_CARD_BY_ID = "UPDATE card SET name = ?, price = ?, quantity = ?";
+    private static final String UPDATE_CARD_BY_ID = "UPDATE card SET name = ?, price = ?, quantity = ? WHERE id = ?";
     public static void update(Card card){
         Connection connection = GetConnection.getConnect();
         try{
@@ -16,6 +16,7 @@ public class UpdateCard {
             preparedStatement.setString(1, card.getName());
             preparedStatement.setString(2, String.valueOf(card.getPrice()));
             preparedStatement.setString(3, String.valueOf(card.getQuantity()));
+            preparedStatement.setString(4, card.getId());
             preparedStatement.executeUpdate();
         }
         catch(SQLException e){

@@ -6,10 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Title</title>
     <style>
+
         .ontop_header{
             background-image: url('https://i.ytimg.com/vi/zKPtwXJlETI/maxresdefault.jpg');
             height: 100px;
@@ -19,6 +21,9 @@
         }
         *{
             box-sizing: border-box;
+        }
+        p{
+            text-align: center;
         }
         .allcenter {
             *zoom: 1;
@@ -44,6 +49,22 @@
             height: 280px;
             margin-top: 30px;
         }
+        .card{
+            position: relative;
+        }
+        .card_name{
+            position: absolute;
+            bottom: 0px;
+            text-align: center;
+        }
+        .card_price{
+            position: absolute;
+            bottom: 40px;
+            background-color: rgba(174,255,238,0.54);
+            width: 100%;
+            left: 0px;
+            text-align: center;
+        }
         @media screen and (max-width: 1000px) {
             .col-sm-3 img {
                 width: 50%;
@@ -67,11 +88,13 @@
                 <p style="margin: 0;">Địa chỉ:&nbsp;<strong>15 Bùi Ngọc Dương,Hai Bà Trưng,Hà Nội</strong></p>
             </div>
             <div class="pull-right">
-                <ul class="language_user" style="margin-left: 30px; display: inline">
-                    <li><a href="">Đăng Ký</a></li>
-                    <li>|</li>
-                    <li><a href="">Đăng Nhập</a></li>
-                </ul>
+                <form method="post" action="/login">
+                    <ul class="language_user" style="margin-left: 30px; display: inline">
+                        <li><button>Đăng ký</button></li>
+                        <li>|</li>
+                        <li><button>Đăng nhập</button></li>
+                    </ul>
+                </form>
             </div>
         </div>
     </div>
@@ -108,12 +131,15 @@
                         <a class="dropdown-item" href="#">Build Deck</a>
                         <a class="dropdown-item" href="#">Top meta</a>
                         <a class="dropdown-item" href="#">Top bán chạy</a>
+                        <form method="post" action="Administrator.jsp">
+                            <a class="dropdown-item" href="#">Administrator</a>
+                        </form>
                     </div>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
+            <form action="/find" method="post" class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Search</button>
             </form>
         </div>
     </nav>
@@ -123,34 +149,17 @@
         </div>
         <div class="col-sm-9">
             <div class="row" >
-                <div class="col-sm-3">
-                    <img src="https://i.imgur.com/PEB3YGn.png" alt="">
-                    <b><p>Linkuriboh</p></b>
+                <c:forEach items="${myCardList}" var= "mycard">
+                <div class="col-sm-3 card">
+                    <img src=${mycard.image} alt="">
+                    <div class="card_name">
+                        <b><p>${mycard.name}</p></b>
+                    </div>
+                    <div class="card_price">
+                        <b><p>Giá: ${mycard.price} VNĐ</p></b>
+                    </div>
                 </div>
-                <div class="col-sm-3">
-                    <img src="https://i.imgur.com/PEB3YGn.png" alt="">
-                    <b><p>Linkuriboh</p></b>
-                </div>
-                <div class="col-sm-3">
-                    <img src="https://i.imgur.com/PEB3YGn.png" alt="">
-                    <b><p>Linkuriboh</p></b>
-                </div>
-                <div class="col-sm-3">
-                    <img src="https://i.imgur.com/PEB3YGn.png" alt="">
-                    <b><p>Linkuriboh</p></b>
-                </div>
-                <div class="col-sm-3">
-                    <img src="https://i.imgur.com/PEB3YGn.png" alt="">
-                    <b><p>Linkuriboh</p></b>
-                </div>
-                <div class="col-sm-3">
-                    <img src="https://i.imgur.com/PEB3YGn.png" alt="">
-                    <b><p>Linkuriboh</p></b>
-                </div>
-                <div class="col-sm-3">
-                    <img src="https://i.imgur.com/PEB3YGn.png" alt="">
-                    <b><p>Linkuriboh</p></b>
-                </div>
+                </c:forEach>
             </div>
         </div>
     </div>

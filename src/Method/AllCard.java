@@ -22,7 +22,8 @@ public class AllCard {
                 String name = resultSet.getString("name");
                 double price = Double.parseDouble(resultSet.getString("price"));
                 int quantity = Integer.parseInt(resultSet.getString("quantity"));
-                mylist.add(new Card(id, name, price, quantity));
+                String image = resultSet.getString("image");
+                mylist.add(new Card(id, name, price, quantity, image));
             }
         } catch (SQLException e) {
             e.printStackTrace();

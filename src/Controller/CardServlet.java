@@ -1,4 +1,6 @@
 package Controller;
+import Method.*;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,11 +19,11 @@ public class CardServlet extends HttpServlet {
             action= "";
         }
         switch (action){
-            case "find":
-                FindCardByName.find(request, response);
-                break;
             case "add":
                 AddNewCard.add(request, response);
+                break;
+            case "update":
+                UpdateCardByID.update(request, response);
                 break;
         }
     }
@@ -37,19 +39,16 @@ public class CardServlet extends HttpServlet {
             case "add":
                 ShowFormAddNewCard.show(request, response);
                 break;
+            case "update":
+                ShowFormUpdateCard.show(request, response);
+                break;
             case "delete":
                 try {
                     DeleteCardByID.delete(request, response);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
-            case "find":
-                ShowFormFindCard.show(request, response);
-                break;
-            default:
-                ShowListCard.show(request, response);
                 break;
         }
     }
-
 }

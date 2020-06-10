@@ -22,15 +22,19 @@
             </tr>
             <tr>
                 <td>Name</td>
-                <td><input type="text" name = "newName" placeholder="ID"></td>
+                <td><input type="text" name = "newName" placeholder="Name"></td>
             </tr>
             <tr>
                 <td>Price</td>
-                <td><input type="text" name = "newPrice" placeholder="ID"></td>
+                <td><input type="text" name = "newPrice" placeholder="Price"></td>
             </tr>
             <tr>
                 <td>Quantity</td>
-                <td><input type="text" name = "newQuantity" placeholder="ID"></td>
+                <td><input type="text" name = "newQuantity" placeholder="Quantity"></td>
+            </tr>
+            <tr>
+                <td>Image</td>
+                <td><input type="text" name = "newImage" placeholder="Image"></td>
             </tr>
             <tr>
                 <td>

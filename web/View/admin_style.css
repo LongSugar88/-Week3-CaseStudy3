@@ -1,0 +1,64 @@
+
+.ontop_header{
+    background-image: url('https://i.ytimg.com/vi/zKPtwXJlETI/maxresdefault.jpg');
+    height: 100px;
+    width: 100%;
+    line-height: 40px;
+    color: #fff;
+}
+*{
+    box-sizing: border-box;
+}
+p{
+    text-align: center;
+}
+.allcenter {
+    *zoom: 1;
+}
+.pull-left {
+    float: left;
+}
+.pull-right {
+    float: right;
+}
+.language_user {
+    list-style: none;
+    float: left;
+    margin: 0px;
+    padding: 0px;
+}
+li{
+    float: left;
+    margin: 10px;
+}
+.col-sm-3 img{
+    width: 100%;
+    height: 280px;
+    margin-top: 30px;
+}
+.card{
+    position: relative;
+}
+.card_name{
+    position: absolute;
+    bottom: 0px;
+    text-align: center;
+}
+.card_price{
+    position: absolute;
+    bottom: 40px;
+    background-color: rgba(174,255,238,0.54);
+    width: 100%;
+    left: 0px;
+    text-align: center;
+}
+@media screen and (max-width: 1000px) {
+    .col-sm-3 img {
+        width: 50%;
+    }
+}
+@media screen and (max-width: 500px) {
+    .col-sm-3 img {
+        width: 100%;
+    }
+}
