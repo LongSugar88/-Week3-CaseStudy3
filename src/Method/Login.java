@@ -24,7 +24,7 @@ public class Login {
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/Admin.jsp");
                 requestDispatcher.forward(request, response);
             } else {
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/staff.jsp");
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/Staff.jsp");
                 requestDispatcher.forward(request, response);
             }
         } else {

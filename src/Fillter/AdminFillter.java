@@ -14,7 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebFilter(filterName = "PermissionFilter", urlPatterns = "Administrator.jsp")
+@WebFilter(filterName = "PermissionFilter", urlPatterns = "/administrator")
 public class AdminFillter implements Filter {
 
     @Override

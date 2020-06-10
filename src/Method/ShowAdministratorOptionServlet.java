@@ -1,7 +1,6 @@
-package Controller;
+package Method;
 
-import Method.FindCardByName;
-import Method.ShowFormFindCard;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,16 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "FindCardServlet", urlPatterns = "/find")
-public class FindCardServlet extends HttpServlet {
+@WebServlet(name = "ShowAdministratorOptionServlet", urlPatterns = "/administrator")
+public class ShowAdministratorOptionServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        FindCardByName.find(request, response);
-        ShowFormFindCard.show(request, response);
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("utf-8");
-        response.setContentType("text/html; charset=UTF-8");
-        ShowFormFindCard.show(request, response);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/Administrator.jsp");
+        requestDispatcher.forward(request, response);
     }
 }

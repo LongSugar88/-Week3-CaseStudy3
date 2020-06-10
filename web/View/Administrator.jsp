@@ -15,20 +15,17 @@
         <legend>Administrator option</legend>
         <form method="post" action="/myCard?action=add">
             <tr>
-                <td>Thêm card</td>
-                <td><button>Select</button></td>
+                <td><a href="http://localhost:8080/myCard?action=add">Thêm card </a></td>
             </tr>
         </form>
         <form method="post" action="/myCard?action=update">
             <tr>
-                <td>Sửa card</td>
-                <td><button>Select</button></td>
+                <td><a href="http://localhost:8080/myCard?action=update">Sửa card </a></td>
             </tr>
         </form>
         <form method="post" action="/myCard?action=delete">
             <tr>
-                <td>Xóa card</td>
-                <td><button>Select</button></td>
+                <td><a href="http://localhost:8080/myCard?action=delete">Xóa card </a></td>
             </tr>
         </form>
     </fieldset>

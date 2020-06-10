@@ -131,7 +131,6 @@
                         <a class="dropdown-item" href="#">Build Deck</a>
                         <a class="dropdown-item" href="#">Top meta</a>
                         <a class="dropdown-item" href="#">Top bán chạy</a>
-                        <a class="dropdown-item" href="http://localhost:8080//administrator">Administrator</a>
                     </div>
                 </li>
             </ul>
@@ -148,15 +147,15 @@
         <div class="col-sm-9">
             <div class="row" >
                 <c:forEach items="${myCardList}" var= "mycard">
-                <div class="col-sm-3 card">
-                    <img src=${mycard.image} alt="">
-                    <div class="card_name">
-                        <b><p>${mycard.name}</p></b>
+                    <div class="col-sm-3 card">
+                        <img src=${mycard.image} alt="">
+                        <div class="card_name">
+                            <b><p>${mycard.name}</p></b>
+                        </div>
+                        <div class="card_price">
+                            <b><p>Giá: ${mycard.price} VNĐ</p></b>
+                        </div>
                     </div>
-                    <div class="card_price">
-                        <b><p>Giá: ${mycard.price} VNĐ</p></b>
-                    </div>
-                </div>
                 </c:forEach>
             </div>
         </div>

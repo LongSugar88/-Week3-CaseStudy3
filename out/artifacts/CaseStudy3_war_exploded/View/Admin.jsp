@@ -131,9 +131,7 @@
                         <a class="dropdown-item" href="#">Build Deck</a>
                         <a class="dropdown-item" href="#">Top meta</a>
                         <a class="dropdown-item" href="#">Top bán chạy</a>
-                        <form method="post" action="Administrator.jsp">
-                            <a class="dropdown-item" href="#">Administrator</a>
-                        </form>
+                        <a class="dropdown-item" href="http://localhost:8080//administrator">Administrator</a>
                     </div>
                 </li>
             </ul>
