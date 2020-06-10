@@ -1,14 +1,15 @@
 <%--
   Created by IntelliJ IDEA.
   User: Mr Sugar
-  Date: 6/9/2020
-  Time: 5:01 PM
+  Date: 6/8/2020
+  Time: 9:36 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
+    <title>Title</title>
     <style>
 
         .ontop_header{
@@ -43,19 +44,37 @@
             float: left;
             margin: 10px;
         }
-        .mytable{
-            margin-top: 30px;
-            margin-left: 20px;
-
-        }
-        tr, td{
-            margin: 5px;
-            padding: 5px;
-        }
         .col-sm-3 img{
             width: 100%;
             height: 280px;
             margin-top: 30px;
+        }
+        .card{
+            position: relative;
+
+        }
+        .card_name{
+            position: relative;
+            text-align: center;
+            height: 50px;
+        }
+        .card >.card_sell{
+            visibility: hidden;
+            position: absolute;
+            width: 100%;
+            bottom: 90px;
+            text-align: center;
+            color: white;
+        }
+        .card >.card_sell:hover{
+            visibility: visible;
+            background-color: rgba(255,175,194,0.54);
+        }
+        .card_price{
+            background-color: rgba(174,255,238,0.54);
+            width: 100%;
+            left: 0px;
+            text-align: center;
         }
         @media screen and (max-width: 1000px) {
             .col-sm-3 img {
@@ -71,7 +90,6 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-    <title>Title</title>
 </head>
 <body>
 <div class = "container" style="height: auto">
@@ -81,13 +99,11 @@
                 <p style="margin: 0;">Địa chỉ:&nbsp;<strong>15 Bùi Ngọc Dương,Hai Bà Trưng,Hà Nội</strong></p>
             </div>
             <div class="pull-right">
-                <form method="post" action="/login">
-                    <ul class="language_user" style="margin-left: 30px; display: inline">
-                        <li><a href="">Đăng ký</a></li>
-                        <li>|</li>
-                        <li><a href="http://localhost:8080/login">Đăng nhập</a></li>
-                    </ul>
-                </form>
+                <ul class="language_user" style="margin-left: 30px; display: inline">
+                    <li><a href="">Đăng ký</a></li>
+                    <li>|</li>
+                    <li><a href="http://localhost:8080/login">Đăng nhập</a></li>
+                </ul>
             </div>
         </div>
     </div>
@@ -135,43 +151,10 @@
     </nav>
     <div class="row">
         <div class="col-sm-3">
+
         </div>
-        <div class="col-sm-9">
-            <form method="post">
-                   <div class="row">
-                      <div class="col-sm-6"  >
-                          <table class="mytable">
-                              <c:if test="${card != null}">
-                                  <input type="hidden" name="id" value="<c:out value='${card.id}' />"/>
-                              </c:if>
-                              <tr>
-                                  <td>New name</td>
-                                  <td><input type="text" name = "newName" value = '<c:out value="${card.name}"/>'></td>
-                              </tr>
-                              <tr>
-                                  <td>New price</td>
-                                  <td><input type="text" name = "newPrice" value = '<c:out value="${card.price}"/>'></td>
-                              </tr>
-                              <tr>
-                                  <td>New quantity</td>
-                                  <td><input type="text" name = "newQuantity" value = '<c:out value="${card.quantity}"/>'></td>
-                              </tr>
-                              <tr>
-                                  <td>New image</td>
-                                  <td><input type="text" name = "newImage" value = '<c:out value="${card.image}"/>'></td>
-                              </tr>
-                              <tr>
-                              </tr>
-                              <tr>
-                                  <td colspan="2" align="right"><button>Save Change</button></td>
-                              </tr>
-                          </table>
-                      </div>
-                       <div class="col-sm-3">
-                           <img src="${card.image}" alt="" width=100%, height=100px/>
-                       </div>
-                   </div>
-            </form>
+        <div>
+            <b><p>Bạn cần quyền Admin để thực hiện chức năng này!</p></b>
         </div>
     </div>
     <footer>
@@ -180,9 +163,6 @@
         </div>
     </footer>
 </div>
-<%--<a href="myCard?action=sdfgdsgdg">Back</a>--%>
-<%--<br>--%>
-
 </body>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

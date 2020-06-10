@@ -1,6 +1,6 @@
 package Controller;
 import Method.*;
-import Method.Delete.DeleteCardByID;
+import Method.DeleteCardByID;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,6 +26,9 @@ public class CardServlet extends HttpServlet {
             case "update":
                 UpdateCardByID.update(request, response);
                 break;
+            case "find":
+                FindCardByName.find(request, response);
+                break;
         }
     }
 
@@ -49,6 +52,9 @@ public class CardServlet extends HttpServlet {
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
+                break;
+            case "home":
+                ShowListCard.show(request, response);
                 break;
         }
     }

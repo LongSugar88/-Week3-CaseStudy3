@@ -17,10 +17,10 @@ import java.io.IOException;
 public class LoginUserServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ShowFormLogin.show(request, response);
+        Login.execute(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Login.execute(request, response);
+        ShowFormLogin.show(request, response);
     }
 }

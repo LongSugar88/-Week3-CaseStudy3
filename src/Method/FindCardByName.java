@@ -13,9 +13,10 @@ import java.util.List;
 public class FindCardByName {
     public static void find(HttpServletRequest request, HttpServletResponse response){
         String name = request.getParameter("cardName");
+        String address = request.getParameter("address");
         List<Card> listCard = FindCard.getCardByName(name);
-        request.setAttribute("listCard", listCard);
-        RequestDispatcher  requestDispatcher = request.getRequestDispatcher("View/FormFindCard.jsp");
+        request.setAttribute("myCardList", listCard);
+        RequestDispatcher  requestDispatcher = request.getRequestDispatcher(address);
         try{
             requestDispatcher.forward(request, response);
         }

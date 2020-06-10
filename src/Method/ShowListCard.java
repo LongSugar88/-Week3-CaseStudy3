@@ -12,7 +12,7 @@ public class ShowListCard {
     public static void show(HttpServletRequest request, HttpServletResponse response) {
         List<Card> myList = AllCard.showAllCard();
         request.setAttribute("myCardList", myList);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/Admin.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/BasicLogin.jsp");
         try {
             requestDispatcher.forward(request, response);
         } catch (ServletException e) {

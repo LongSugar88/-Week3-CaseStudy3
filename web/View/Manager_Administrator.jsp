@@ -1,14 +1,14 @@
 <%--
   Created by IntelliJ IDEA.
   User: Mr Sugar
-  Date: 6/9/2020
-  Time: 5:01 PM
+  Date: 6/10/2020
+  Time: 11:35 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
+    <title>Title</title>
     <style>
 
         .ontop_header{
@@ -43,19 +43,37 @@
             float: left;
             margin: 10px;
         }
-        .mytable{
-            margin-top: 30px;
-            margin-left: 20px;
-
-        }
-        tr, td{
-            margin: 5px;
-            padding: 5px;
-        }
         .col-sm-3 img{
             width: 100%;
             height: 280px;
             margin-top: 30px;
+        }
+        .card{
+            position: relative;
+
+        }
+        .card_name{
+            position: relative;
+            text-align: center;
+            height: 50px;
+        }
+        .card >.card_sell{
+            visibility: hidden;
+            position: absolute;
+            width: 100%;
+            bottom: 90px;
+            text-align: center;
+            color: white;
+        }
+        .card >.card_sell:hover{
+            visibility: visible;
+            background-color: rgba(255,175,194,0.54);
+        }
+        .card_price{
+            background-color: rgba(174,255,238,0.54);
+            width: 100%;
+            left: 0px;
+            text-align: center;
         }
         @media screen and (max-width: 1000px) {
             .col-sm-3 img {
@@ -68,10 +86,6 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-    <title>Title</title>
 </head>
 <body>
 <div class = "container" style="height: auto">
@@ -108,9 +122,6 @@
                     <a class="nav-link" href="#">Sản phẩm Yugioh<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Cardfight Vanguard</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="#">Board games</a>
                 </li>
                 <li class="nav-item">
@@ -124,6 +135,7 @@
                         <a class="dropdown-item" href="#">Build Deck</a>
                         <a class="dropdown-item" href="#">Top meta</a>
                         <a class="dropdown-item" href="#">Top bán chạy</a>
+                        <a class="dropdown-item" href="./administrator">Administrator</a>
                     </div>
                 </li>
             </ul>
@@ -135,54 +147,23 @@
     </nav>
     <div class="row">
         <div class="col-sm-3">
-        </div>
-        <div class="col-sm-9">
-            <form method="post">
-                   <div class="row">
-                      <div class="col-sm-6"  >
-                          <table class="mytable">
-                              <c:if test="${card != null}">
-                                  <input type="hidden" name="id" value="<c:out value='${card.id}' />"/>
-                              </c:if>
-                              <tr>
-                                  <td>New name</td>
-                                  <td><input type="text" name = "newName" value = '<c:out value="${card.name}"/>'></td>
-                              </tr>
-                              <tr>
-                                  <td>New price</td>
-                                  <td><input type="text" name = "newPrice" value = '<c:out value="${card.price}"/>'></td>
-                              </tr>
-                              <tr>
-                                  <td>New quantity</td>
-                                  <td><input type="text" name = "newQuantity" value = '<c:out value="${card.quantity}"/>'></td>
-                              </tr>
-                              <tr>
-                                  <td>New image</td>
-                                  <td><input type="text" name = "newImage" value = '<c:out value="${card.image}"/>'></td>
-                              </tr>
-                              <tr>
-                              </tr>
-                              <tr>
-                                  <td colspan="2" align="right"><button>Save Change</button></td>
-                              </tr>
-                          </table>
-                      </div>
-                       <div class="col-sm-3">
-                           <img src="${card.image}" alt="" width=100%, height=100px/>
-                       </div>
-                   </div>
-            </form>
+
         </div>
     </div>
+        <div class="col-sm-9">
+            <div style="margin-top: 40px; margin-bottom: 40px">
+                <button type="button" class="btn btn-outline-primary"><a href="./myCard?action=add">Thêm Card</a></button>
+                <button type="button" class="btn btn-outline-secondary"><a href="./myCard?action=update">Sửa Card</a></button>
+                <button type="button" class="btn btn-outline-success"><a href="./myCard?action=delete">Xóa Card</a></button>
+                <button type="button" class="btn btn-outline-success"><a href="./myCard?action=delete">Quản lý nhân viên</a></button>
+            </div>
+        </div>
     <footer>
         <div class="card-heading text-center">
             <p>Dueling Shop &copy; 2020</p>
         </div>
     </footer>
 </div>
-<%--<a href="myCard?action=sdfgdsgdg">Back</a>--%>
-<%--<br>--%>
-
 </body>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

@@ -1,4 +1,4 @@
-package Method;
+package Controller;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,7 +15,7 @@ public class ShowAdministratorOptionServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/Administrator.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/Manager_Administrator.jsp");
         requestDispatcher.forward(request, response);
     }
 }
