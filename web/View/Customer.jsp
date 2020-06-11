@@ -68,6 +68,7 @@
         }
         .card_sell:hover{
             visibility: visible;
+            background-color: rgba(255,175,194,0.54);
         }
         .card_price{
             background-color: rgba(174,255,238,0.54);
@@ -131,9 +132,9 @@
             </div>
             <div class="pull-right">
                 <ul class="language_user" style="margin-left: 30px; display: inline">
-                    <li><a href="">Đăng ký</a></li>
+                    <li><a href="./myCard?action=home">Đăng xuất</a></li>
                     <li>|</li>
-                    <li><a href="./login">Đăng nhập</a></li>
+                    <li><b><p>Xin chào: ${nameUser}</p></b></li>
                 </ul>
             </div>
         </div>
@@ -176,7 +177,7 @@
             </ul>
             <form action="./myCard?action=find" method="post" class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" name = "cardName" type="search" placeholder="Search" aria-label="Search">
-                <input type="hidden" name = "address" value="View/BasicLogin.jsp" width="1px">
+                <input type="hidden" name = "address" value="View/Customer.jsp" width="1px">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Search</button>
             </form>
         </div>
@@ -224,7 +225,7 @@
                                 <b><p>${mycard.name}</p></b>
                             </div>
                             <div class="card_option">
-                                <button ><a href="./login">Mua</a></button>
+                                <button ><a href="./myUser?action=buy&id=${mycard.id}">Mua</a></button>
                             </div>
                         </div>
                     </div>

@@ -1,4 +1,5 @@
 package Controller;
+import Method.BuyCard;
 import Method.Card.*;
 import Method.User.*;
 import javax.servlet.ServletException;
@@ -12,6 +13,8 @@ import java.sql.SQLException;
 @WebServlet(name = "UserServlet", urlPatterns = "/myUser")
 public class UserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
+        response.setContentType("text/html; charset=UTF-8");
         String action;
         action = request.getParameter("action");
         if(action == null){
@@ -30,6 +33,7 @@ public class UserServlet extends HttpServlet {
             case "showAllUser":
                 ShowAllUser.show(request, response);
                 break;
+
         }
     }
 
@@ -53,6 +57,12 @@ public class UserServlet extends HttpServlet {
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
+                break;
+            case "buy":
+                BuyCard.buy(request, response);
+                break;
+            case "viewBill":
+                BuyCard.pay(request, response);
                 break;
             default:
                 ShowAllUser.show(request, response);

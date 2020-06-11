@@ -134,7 +134,7 @@
                 <ul class="language_user" style="margin-left: 30px; display: inline">
                     <li><a href="./myCard?action=home">Đăng xuất</a></li>
                     <li>|</li>
-                    <li><b><p>Xin chào: ${name}</p></b></li>
+                    <li><b><p>Xin chào: ${nameUser}</p></b></li>
                 </ul>
             </div>
         </div>
@@ -191,7 +191,7 @@
                         <div class="row" style="align-content: center; align-items: center">
                             <img style="width: 50px; height: 50px; margin-top: 0px" class="col-sm-5" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Shopping_cart_icon.svg/1200px-Shopping_cart_icon.svg.png"/>
                             <ul class="col-sm-7">
-                                <li><a href="#">Xem giỏ hàng</a></li>
+                                <li><a href="./myUser?action=viewBill">Xem giỏ hàng</a></li>
                             </ul>
                         </div>
                     </div>

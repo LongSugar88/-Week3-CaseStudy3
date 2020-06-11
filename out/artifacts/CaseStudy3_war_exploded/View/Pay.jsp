@@ -53,33 +53,14 @@
             position: relative;
 
         }
-        .card_name{
-            position: relative;
+        .myUserTable{
+            border: 1px;
+            border-collapse: collapse;
             text-align: center;
-            height: 42px;
-        }
-        .card >.card_sell{
-            visibility: hidden;
-            position: absolute;
-            width: 100%;
-            bottom: 90px;
-            text-align: center;
-            color: white;
-        }
-        .card_sell:hover{
-            visibility: visible;
-        }
-        .card_price{
-            background-color: rgba(174,255,238,0.54);
-            width: 100%;
-            left: 0px;
-            text-align: center;
-        }
-        .card_option{
-            text-decoration: none;
-            align-self: center;
-            align-items: center;
             align-content: center;
+        }
+        .myUserTable tr, td{
+            margin: 5px;
         }
         .card_option>button{
             width: 71px;
@@ -131,9 +112,9 @@
             </div>
             <div class="pull-right">
                 <ul class="language_user" style="margin-left: 30px; display: inline">
-                    <li><a href="">Đăng ký</a></li>
+                    <li><a href="./myCard?action=home">Đăng xuất</a></li>
                     <li>|</li>
-                    <li><a href="./login">Đăng nhập</a></li>
+                    <li><b><p>Xin chào: ${name}</p></b></li>
                 </ul>
             </div>
         </div>
@@ -176,7 +157,7 @@
             </ul>
             <form action="./myCard?action=find" method="post" class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" name = "cardName" type="search" placeholder="Search" aria-label="Search">
-                <input type="hidden" name = "address" value="View/BasicLogin.jsp" width="1px">
+                <input type="hidden" name = "address" value="View/Admin.jsp" width="1px">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Search</button>
             </form>
         </div>
@@ -210,25 +191,35 @@
         </div>
         <div class="col-sm-9">
             <div class="row" >
-                <c:forEach items="${myCardList}" var= "mycard">
-                    <div class="col-sm-3">
-                        <div class="card">
-                            <img src=${mycard.image} alt="">
-                            <div class="card_sell">
-                                <b><p>Mua hàng</p></b>
-                            </div>
-                            <div class="card_price">
-                                <b><p>Giá: ${mycard.price} VNĐ</p></b>
-                            </div>
-                            <div class="card_name">
-                                <b><p>${mycard.name}</p></b>
-                            </div>
-                            <div class="card_option">
-                                <button ><a href="./login">Mua</a></button>
-                            </div>
-                        </div>
-                    </div>
-                </c:forEach>
+                <table class="table" style="margin-top: 30px">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">User Name</th>
+                        <th scope="col">Card ID</th>
+                        <th scope="col">Card Name</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Card Price</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><b>${billID}</b></td>
+                        <td ><b>${userName}</b></td>
+                    </tr>
+                    <c:forEach items="${myCardList}" var= "myCard">
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>${myCard.id}</td>
+                            <td>${myCard.name}</td>
+                            <td>${myCard.quantity}</td>
+                            <td>${myCard.price}</td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                    <tr><td><button><b>Pay</b></button></td></tr>
+                </table>
             </div>
         </div>
     </div>

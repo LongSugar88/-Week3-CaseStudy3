@@ -19,21 +19,23 @@ public class Login {
             httpSession.setAttribute("is_login", true);
             httpSession.setAttribute("name", user.getName());
             if (user.getRole().equalsIgnoreCase("admin")) {
-                request.setAttribute("name",user.getName());
-                request.setAttribute("is_login",true);
-                request.setAttribute("role",user.getRole());
+                request.setAttribute("nameUser",user.getName());
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/Admin.jsp");
                 requestDispatcher.forward(request, response);
-            } else {
-                request.setAttribute("name",user.getName());
-                request.setAttribute("is_login",true);
-                request.setAttribute("role",user.getRole());
+            }
+            else if(user.getRole().equalsIgnoreCase("customer")){
+                request.setAttribute("nameUser",user.getName());
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/Customer.jsp");
+                requestDispatcher.forward(request, response);
+            }
+            else {
+                request.setAttribute("nameUser",user.getName());
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/Staff.jsp");
                 requestDispatcher.forward(request, response);
             }
         } else {
             request.setAttribute("message", "Đăng nhập không thành công");
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/login.jsp");
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/Login.jsp");
             requestDispatcher.forward(request, response);
         }
     }
