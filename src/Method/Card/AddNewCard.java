@@ -1,4 +1,5 @@
-package Method;
+package Method.Card;
+import Method.GetConnection;
 import Model.Card;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

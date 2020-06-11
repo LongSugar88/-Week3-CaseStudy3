@@ -1,6 +1,6 @@
 package Controller;
 import Method.*;
-import Method.DeleteCardByID;
+import Method.Card.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,7 +27,7 @@ public class CardServlet extends HttpServlet {
                 UpdateCardByID.update(request, response);
                 break;
             case "find":
-                FindCardByName.find(request, response);
+                FindCard.find(request, response);
                 break;
         }
     }
@@ -54,7 +54,7 @@ public class CardServlet extends HttpServlet {
                 }
                 break;
             case "home":
-                ShowListCard.show(request, response);
+                ShowAllCard.show(request, response);
                 break;
         }
     }

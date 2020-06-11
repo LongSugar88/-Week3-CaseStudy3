@@ -1,6 +1,6 @@
 package Controller;
 
-import Method.FindCardByName;
+import Method.Card.FindCard;
 import Method.ShowFormFindCard;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +12,7 @@ import java.io.IOException;
 @WebServlet(name = "FindCardServlet", urlPatterns = "/find")
 public class FindCardServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        FindCardByName.find(request, response);
+        FindCard.find(request, response);
         ShowFormFindCard.show(request, response);
     }
 

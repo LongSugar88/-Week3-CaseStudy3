@@ -1,6 +1,6 @@
 package Controller;
 
-import Method.ShowListCard;
+import Method.Card.ShowAllCard;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,6 +16,6 @@ public class ShowCardServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ShowListCard.show(request, response);
+        ShowAllCard.show(request, response);
     }
 }

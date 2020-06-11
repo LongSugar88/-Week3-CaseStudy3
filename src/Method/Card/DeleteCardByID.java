@@ -1,4 +1,6 @@
-package Method;
+package Method.Card;
+
+import Method.GetConnection;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +19,6 @@ public class DeleteCardByID {
     public static void delete(HttpServletRequest request, HttpServletResponse response ) throws SQLException {
         String id = request.getParameter("id");
         delete(id);
-        ShowListCard.show(request, response);
+        ShowAllCard.show(request, response);
     }
 }

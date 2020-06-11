@@ -1,6 +1,4 @@
 package Fillter;
-import Method.AllCard;
-import Model.Card;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -9,10 +7,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.List;
 
 @WebFilter(filterName = "PermissionFilter", urlPatterns = "/administrator")
 public class AdminFillter implements Filter {
