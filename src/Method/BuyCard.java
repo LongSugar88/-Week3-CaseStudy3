@@ -1,4 +1,5 @@
 package Method;
+import Controller.UserServlet;
 import Method.Card.FindCard;
 import Method.User.FindUser;
 import Model.Card;
@@ -17,9 +18,37 @@ import java.util.List;
 public class BuyCard {
     private static String orderID;
     private static String username;
+    private static List<Card> myList;
+    private static UserServlet userServlet = new UserServlet();
+    public static boolean addCardToStorage(Card card) {
+        if(UserServlet.getList().size() > 0){
+            for (Card element : UserServlet.getList()) {
+                String id = card.getId();
+                if (element.getId().equalsIgnoreCase(id)) {
+                    int quantity = element.getQuantity() + 1;
+                    element.setQuantity(quantity);
+                    return false;
+                }
+            }
+            UserServlet.getList().add(card);
+            return true;
+        }
+        else {
+            UserServlet.getList().add(card);
+            return true;
+        }
+
+    }
+    public static void creatBill(){
+        List<Card> myListCard = UserServlet.getList();
+        User user = FindUser.getUserByName(username);
+        for (Card element: myListCard) {
+            execute(user, element);
+        }
+    }
      public static void execute(User user, Card card){
          String query = "CALL newOrder(?, ?, ?)";
-        int quantity = 1;
+        int quantity = card.getQuantity();
         String cardID = card.getId();
         String user_ID = user.getId();
         try{
@@ -43,7 +72,6 @@ public class BuyCard {
              ResultSet resultSet = callableStatement.executeQuery();
              while (resultSet.next()){
                  orderID = resultSet.getString("orderID");
-                 username = resultSet.getString("userName");
                  String cardID = resultSet.getString("idCard");
                  String cardname = resultSet.getString("nameCard");
                  Integer quantity = resultSet.getInt("quantity");
@@ -59,16 +87,21 @@ public class BuyCard {
      public static void buy(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
          HttpSession httpSession = request.getSession();
          Object o = httpSession.getAttribute("is_login");
-         Object userName = httpSession.getAttribute("name");
-         User user = FindUser.getUserByName(userName.toString());
+         Object n = httpSession.getAttribute("name");
+         username = n.toString();
          if(o!= null){
              Boolean is_login = Boolean.parseBoolean(o.toString());
              if(is_login){
                  String id = request.getParameter("id");
-
                  Card card = FindCard.getCardByID(id);
-                 execute(user, card);
+                 String name = card.getName();
+                 double price = card.getPrice();
+                 int quantity = card.getQuantity();
+                 String image = card.getImage();
+                 addCardToStorage(new Card(id, name, price, quantity, image));
              }
+             RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/Customer.jsp");
+             requestDispatcher.forward(request, response);
          }
          else {
              request.setAttribute("message", "Bạn cần đăng nhập để order! ");
@@ -76,8 +109,8 @@ public class BuyCard {
              requestDispatcher.forward(request, response);
          }
      }
-     public static void pay(HttpServletRequest request, HttpServletResponse response){
-         List<Card> myList = getBill();
+     public static void viewOrder(HttpServletRequest request, HttpServletResponse response){
+         List<Card> myList = UserServlet.getList();
          request.setAttribute("myCardList", myList);
          request.setAttribute("userName", username);
          request.setAttribute("billID", orderID);
@@ -88,4 +121,23 @@ public class BuyCard {
              e.printStackTrace();
          }
      }
+    public static void amount(HttpServletRequest request, HttpServletResponse response){
+        creatBill();
+        List<Card> myList = getBill();
+        Double amount = 0.0;
+        for (Card element: myList) {
+            amount += element.getPrice() * element.getQuantity();
+        }
+        request.setAttribute("myCardList", myList);
+        request.setAttribute("userName", username);
+        request.setAttribute("billID", orderID);
+        request.setAttribute("amount", amount);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/Amount.jsp");
+        myList = null;
+        try {
+            requestDispatcher.forward(request, response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

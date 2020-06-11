@@ -131,7 +131,7 @@
             </div>
             <div class="pull-right">
                 <ul class="language_user" style="margin-left: 30px; display: inline">
-                    <li><a href="">Đăng ký</a></li>
+                    <li><a href="./myUser?action=registerCustomer">Đăng ký</a></li>
                     <li>|</li>
                     <li><a href="./login">Đăng nhập</a></li>
                 </ul>
@@ -151,8 +151,8 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Sản phẩm Yugioh<span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="./show">Sản phẩm Yugioh<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Cardfight Vanguard</a>

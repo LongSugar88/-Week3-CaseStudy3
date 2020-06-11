@@ -8,14 +8,15 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class AddNewUser {
+public class AddNewUserManager {
     private static final String ADD_NEW_USER = "INSERT INTO user(id, username, role, password) VALUES (? , ?, ?, ?);";
-    public static void addNewCard(User user){
+    public static void addNewUser(User user){
         String id = user.getId();
         String name = user.getName();
         String role = user.getRole();
@@ -38,7 +39,7 @@ public class AddNewUser {
         String role = request.getParameter("newRole");
         String password = request.getParameter("newPassword");
         User user = new User(id, name, role, password);
-        addNewCard(user);
+        addNewUser(user);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/FormRegister.jsp");
         try{
             requestDispatcher.forward(request, response);

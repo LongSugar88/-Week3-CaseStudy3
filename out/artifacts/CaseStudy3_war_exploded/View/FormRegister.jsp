@@ -49,6 +49,11 @@
             height: 280px;
             margin-top: 30px;
         }
+        .mytable{
+            margin-top: 30px;
+            margin-left: 20px;
+
+        }
         .card{
             position: relative;
 

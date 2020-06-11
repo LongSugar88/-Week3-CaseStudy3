@@ -152,8 +152,8 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Sản phẩm Yugioh<span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="./show">Sản phẩm Yugioh<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Cardfight Vanguard</a>
@@ -191,7 +191,7 @@
                         <div class="row" style="align-content: center; align-items: center">
                             <img style="width: 50px; height: 50px; margin-top: 0px" class="col-sm-5" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Shopping_cart_icon.svg/1200px-Shopping_cart_icon.svg.png"/>
                             <ul class="col-sm-7">
-                                <li><a href="./myUser?action=viewBill">Xem giỏ hàng</a></li>
+                                <li><a href="#">Xem giỏ hàng</a></li>
                             </ul>
                         </div>
                     </div>

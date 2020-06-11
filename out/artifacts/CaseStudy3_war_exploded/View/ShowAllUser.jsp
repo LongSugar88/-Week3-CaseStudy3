@@ -152,7 +152,6 @@
                         <a class="dropdown-item" href="#">Build Deck</a>
                         <a class="dropdown-item" href="#">Top meta</a>
                         <a class="dropdown-item" href="#">Top bán chạy</a>
-                        <a class="dropdown-item" href="./administrator" style="color: #ff000b">Administrator</a>
                     </div>
                 </li>
             </ul>

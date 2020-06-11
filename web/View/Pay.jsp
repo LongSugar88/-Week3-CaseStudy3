@@ -157,7 +157,7 @@
             </ul>
             <form action="./myCard?action=find" method="post" class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" name = "cardName" type="search" placeholder="Search" aria-label="Search">
-                <input type="hidden" name = "address" value="View/Admin.jsp" width="1px">
+                <input type="hidden" name = "address" value="View/Customer.jsp" width="1px">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Search</button>
             </form>
         </div>
@@ -170,7 +170,7 @@
                         <div class="row" style="align-content: center; align-items: center">
                             <img style="width: 50px; height: 50px; margin-top: 0px" class="col-sm-5" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Shopping_cart_icon.svg/1200px-Shopping_cart_icon.svg.png"/>
                             <ul class="col-sm-7">
-                                <li><a href="#">Xem giỏ hàng</a></li>
+                                <li><a href="./myUser?action=viewBill">Xem giỏ hàng</a></li>
                             </ul>
                         </div>
                     </div>
@@ -191,35 +191,37 @@
         </div>
         <div class="col-sm-9">
             <div class="row" >
-                <table class="table" style="margin-top: 30px">
-                    <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">User Name</th>
-                        <th scope="col">Card ID</th>
-                        <th scope="col">Card Name</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Card Price</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td><b>${billID}</b></td>
-                        <td ><b>${userName}</b></td>
-                    </tr>
-                    <c:forEach items="${myCardList}" var= "myCard">
+                    <table class="table" style="margin-top: 30px">
+                        <thead class="thead-dark">
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td>${myCard.id}</td>
-                            <td>${myCard.name}</td>
-                            <td>${myCard.quantity}</td>
-                            <td>${myCard.price}</td>
+                            <th scope="col">ID</th>
+                            <th scope="col">User Name</th>
+                            <th scope="col">Card ID</th>
+                            <th scope="col">Card Name</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Card Price</th>
                         </tr>
-                    </c:forEach>
-                    </tbody>
-                    <tr><td><button><b>Pay</b></button></td></tr>
-                </table>
+                        </thead>
+                        <tbody>
+                        <form method="post">
+                            <tr>
+                                <td><b>${billID}</b></td>
+                                <td ><b>${userName}</b></td>
+                            </tr>
+                            <c:forEach items="${myCardList}" var= "myCard">
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>${myCard.id}</td>
+                                <td>${myCard.name}</td>
+                                <td>${myCard.quantity}</td>
+                                <td>${myCard.price}</td>
+                            </tr>
+                            </c:forEach>
+                        </tbody>
+                        <tr><td><button ><b>Pay</b></button></td></tr>
+                        </form>
+                    </table>
             </div>
         </div>
     </div>

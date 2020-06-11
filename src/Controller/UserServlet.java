@@ -1,7 +1,8 @@
 package Controller;
 import Method.BuyCard;
-import Method.Card.*;
 import Method.User.*;
+import Model.Card;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,9 +10,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(name = "UserServlet", urlPatterns = "/myUser")
 public class UserServlet extends HttpServlet {
+    private static List<Card> mylist;
+    public static List<Card> getList(){
+        if(mylist == null){
+            mylist = new ArrayList<>();
+            return mylist;
+        }
+        else {
+            return mylist;
+        }
+    }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html; charset=UTF-8");
@@ -22,13 +35,19 @@ public class UserServlet extends HttpServlet {
         }
         switch (action){
             case "register":
-                AddNewUser.add(request, response);
+                AddNewUserManager.add(request, response);
+                break;
+            case "registerCustomer":
+                AddNewCustomer.add(request, response);
                 break;
             case "updateUser":
                 UpdateUserByID.update(request, response);
                 break;
             case "findUser":
                 FindUser.find(request, response);
+                break;
+            case "viewBill":
+                BuyCard.amount(request, response);
                 break;
             case "showAllUser":
                 ShowAllUser.show(request, response);
@@ -48,6 +67,9 @@ public class UserServlet extends HttpServlet {
             case "register":
                 ShowFormRegister.show(request, response);
                 break;
+            case "registerCustomer":
+                ShowFormRegisterCustomer.show(request, response);
+                break;
             case "updateUser":
                 ShowFormUpdateUser.show(request, response);
                 break;
@@ -62,7 +84,7 @@ public class UserServlet extends HttpServlet {
                 BuyCard.buy(request, response);
                 break;
             case "viewBill":
-                BuyCard.pay(request, response);
+                BuyCard.viewOrder(request, response);
                 break;
             default:
                 ShowAllUser.show(request, response);

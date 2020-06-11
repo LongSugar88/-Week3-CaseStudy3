@@ -8,14 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "ShowAdministratorOptionServlet", urlPatterns = "/administrator")
-public class ShowAdministratorOptionServlet extends HttpServlet {
+@WebServlet(name = "StaffServlet", urlPatterns = "/staff")
+public class StaffServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/Manager_Administrator.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/Manager_Staff.jsp");
         requestDispatcher.forward(request, response);
     }
 }

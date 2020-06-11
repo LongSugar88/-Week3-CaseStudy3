@@ -1,11 +1,12 @@
 <%--
   Created by IntelliJ IDEA.
   User: Mr Sugar
-  Date: 6/10/2020
-  Time: 11:35 AM
+  Date: 6/8/2020
+  Time: 9:36 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Title</title>
@@ -55,7 +56,7 @@
         .card_name{
             position: relative;
             text-align: center;
-            height: 50px;
+            height: 42px;
         }
         .card >.card_sell{
             visibility: hidden;
@@ -65,7 +66,7 @@
             text-align: center;
             color: white;
         }
-        .card >.card_sell:hover{
+        .card_sell:hover{
             visibility: visible;
             background-color: rgba(255,175,194,0.54);
         }
@@ -74,6 +75,38 @@
             width: 100%;
             left: 0px;
             text-align: center;
+        }
+        .card_option{
+            text-decoration: none;
+            align-self: center;
+            align-items: center;
+            align-content: center;
+        }
+        .card_option>button{
+            width: 71px;
+            height: 32px;
+            margin: 5px;
+        }
+        .poly-cart{
+            margin-top: 28px;
+        }
+        .poly-cart ul {
+            padding: 0px;
+            margin: 0px;
+            list-style: none;
+            font-variant: small-caps;
+        }
+        .poly-cart .panel-heading strong {
+            font-variant: small-caps;
+            font-size: larger;
+            text-shadow: 0 0 2px darkgray;
+        }
+        .poly-prod .panel-body img{
+            height: 150px;
+            max-width: 95%;
+        }
+        a.list-group-item, button.list-group-item {
+            color: #555;
         }
         @media screen and (max-width: 1000px) {
             .col-sm-3 img {
@@ -86,6 +119,9 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 </head>
 <body>
 <div class = "container" style="height: auto">
@@ -95,13 +131,11 @@
                 <p style="margin: 0;">Địa chỉ:&nbsp;<strong>15 Bùi Ngọc Dương,Hai Bà Trưng,Hà Nội</strong></p>
             </div>
             <div class="pull-right">
-                <form method="post" action="/login">
-                    <ul class="language_user" style="margin-left: 30px; display: inline">
-                        <li><a href="">Đăng ký</a></li>
-                        <li>|</li>
-                        <li><a href="http://localhost:8080/login">Đăng nhập</a></li>
-                    </ul>
-                </form>
+                <ul class="language_user" style="margin-left: 30px; display: inline">
+                    <li><a href="./myCard?action=home">Đăng xuất</a></li>
+                    <li>|</li>
+                    <li><b><p>Xin chào: ${nameUser}</p></b></li>
+                </ul>
             </div>
         </div>
     </div>
@@ -118,8 +152,11 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Sản phẩm Yugioh<span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="./show">Sản phẩm Yugioh<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Cardfight Vanguard</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Board games</a>
@@ -135,21 +172,44 @@
                         <a class="dropdown-item" href="#">Build Deck</a>
                         <a class="dropdown-item" href="#">Top meta</a>
                         <a class="dropdown-item" href="#">Top bán chạy</a>
-                        <a class="dropdown-item" href="./administrator">Administrator</a>
+                        <a class="dropdown-item" href="./administrator" style="color: #ff000b">Administrator</a>
                     </div>
                 </li>
             </ul>
-            <form action="/find" method="post" class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <form action="./myCard?action=find" method="post" class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" name = "cardName" type="search" placeholder="Search" aria-label="Search">
+                <input type="hidden" name = "address" value="View/Admin.jsp" width="1px">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Search</button>
             </form>
         </div>
     </nav>
     <div class="row">
         <div class="col-sm-3">
-
+            <div class="poly-cart">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row" style="align-content: center; align-items: center">
+                            <img style="width: 50px; height: 50px; margin-top: 0px" class="col-sm-5" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Shopping_cart_icon.svg/1200px-Shopping_cart_icon.svg.png"/>
+                            <ul class="col-sm-7">
+                                <li><a href="#">Xem giỏ hàng</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <span class="glyphicon glyphicon-th-list"></span>
+                    <strong>Tin tức</strong>
+                </div>
+                <div class="list-group">
+                    <a href="#" class="list-group-item">Tin tức Yu-gi-oh</a>
+                    <a href="#" class="list-group-item">Rank</a>
+                    <a href="#" class="list-group-item">Hướng dẫn chơi Yu-gi-oh</a>
+                    <a href="#" class="list-group-item">Liên hệ</a>
+                </div>
+            </div>
         </div>
-    </div>
         <div class="col-sm-9">
             <div style="margin-top: 40px; margin-bottom: 40px">
                 <button type="button" class="btn btn-outline-primary"><a href="./myCard?action=add">Thêm Card</a></button>

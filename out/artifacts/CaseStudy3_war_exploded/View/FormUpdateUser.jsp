@@ -83,9 +83,9 @@
             <div class="pull-right">
                 <form method="post" action="/login">
                     <ul class="language_user" style="margin-left: 30px; display: inline">
-                        <li><a href="">Đăng ký</a></li>
+                        <li><a href="">Đăng Xuất</a></li>
                         <li>|</li>
-                        <li><a href="http://localhost:8080/login">Đăng nhập</a></li>
+                        <li><a href="./login">Xin chào</a></li>
                     </ul>
                 </form>
             </div>
@@ -127,10 +127,6 @@
                     </div>
                 </li>
             </ul>
-            <form action="/find" method="post" class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Search</button>
-            </form>
         </div>
     </nav>
     <div class="row">
