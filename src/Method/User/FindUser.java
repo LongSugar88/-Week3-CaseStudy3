@@ -37,9 +37,8 @@ public class FindUser {
         }
         return mylist;
     }
-    public static List<User> getUserByName(String name){
+    public static User getUserByName(String name){
         User user = null;
-        List<User> myList = new ArrayList<>();
         try{
             ResultSet resultSet;
             Connection connection = GetConnection.getConnect();
@@ -52,12 +51,34 @@ public class FindUser {
                 String user_name = resultSet.getString("username");
                 String user_role = resultSet.getString("role");
                 String user_password = resultSet.getString("password");
-                myList.add(new User(user_id, user_name, user_role, user_password));
+                user = new User(user_id, user_name, user_role, user_password);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return myList;
+        return user;
+    }
+    public static List<User> getAllUserByName(String name){
+        User user = null;
+        List<User> mylist = new ArrayList<>();
+        try{
+            ResultSet resultSet;
+            Connection connection = GetConnection.getConnect();
+            PreparedStatement preparedStatement = connection.prepareStatement(GET_USER_BY_NAME);
+            String username = "%" + name + "%";
+            preparedStatement.setString(1, username);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                String user_id = resultSet.getString("id");
+                String user_name = resultSet.getString("username");
+                String user_role = resultSet.getString("role");
+                String user_password = resultSet.getString("password");
+                mylist.add(new User(user_id, user_name, user_role, user_password));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return mylist;
     }
     public static User getUserByID(String id){
         User user = null;
@@ -82,7 +103,7 @@ public class FindUser {
     public static void find(HttpServletRequest request, HttpServletResponse response){
         String name = request.getParameter("username");
         String address = request.getParameter("address");
-        List<User> userList = getUserByName(name);
+        List<User> userList = getAllUserByName(name);
         request.setAttribute("userList", userList);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(address);
         try{

@@ -14,7 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class AddNewUser {
-    private static final String ADD_NEW_USER = "INSERT INTO user(id, username, role, password) VALUES (? , ?, ?, ?, ?);";
+    private static final String ADD_NEW_USER = "INSERT INTO user(id, username, role, password) VALUES (? , ?, ?, ?);";
     public static void addNewCard(User user){
         String id = user.getId();
         String name = user.getName();
@@ -39,7 +39,7 @@ public class AddNewUser {
         String password = request.getParameter("newPassword");
         User user = new User(id, name, role, password);
         addNewCard(user);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("....");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/FormRegister.jsp");
         try{
             requestDispatcher.forward(request, response);
         }

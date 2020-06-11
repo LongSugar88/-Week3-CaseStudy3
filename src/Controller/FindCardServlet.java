@@ -1,7 +1,7 @@
 package Controller;
 
 import Method.Card.FindCard;
-import Method.ShowFormFindCard;
+import Method.Card.ShowFormFindCard;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

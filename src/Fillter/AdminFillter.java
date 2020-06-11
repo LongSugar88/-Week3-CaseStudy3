@@ -1,5 +1,9 @@
 package Fillter;
 
+import Method.Card.FindCard;
+import Method.Card.ShowAllCard;
+import Model.Card;
+
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
@@ -7,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 @WebFilter(filterName = "PermissionFilter", urlPatterns = "/administrator")
 public class AdminFillter implements Filter {
@@ -28,22 +33,17 @@ public class AdminFillter implements Filter {
                 filterChain.doFilter(servletRequest, servletResponse);
             }
             else {
-                PrintWriter printWriter = response.getWriter();
-                printWriter.println("ĐCM");
-
-//                List<Card> myList = AllCard.showAllCard();
-//                request.setAttribute("myCardList", myList);
-//                RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/staff.jsp");
-//                requestDispatcher.forward(request, response);
+                List<Card> myList = FindCard.showAllCard();
+                request.setAttribute("myCardList", myList);
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/Staff.jsp");
+                requestDispatcher.forward(request, response);
             }
         }
         else{
-            PrintWriter printWriter = response.getWriter();
-            printWriter.println("ĐCM");
-//                List<Card> myList = AllCard.showAllCard();
-//                request.setAttribute("myCardList", myList);
-//                RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/staff.jsp");
-//                requestDispatcher.forward(request, response);
+                List<Card> myList = FindCard.showAllCard();
+                request.setAttribute("myCardList", myList);
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/BasicLogin.jsp");
+                requestDispatcher.forward(request, response);
         }
     }
 

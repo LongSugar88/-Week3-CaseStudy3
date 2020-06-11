@@ -1,6 +1,6 @@
 package Controller;
-import Method.*;
 import Method.Card.*;
+import Method.User.ShowAllUser;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -55,6 +55,9 @@ public class CardServlet extends HttpServlet {
                 break;
             case "home":
                 ShowAllCard.show(request, response);
+                break;
+            case "showAllUser":
+                ShowAllUser.show(request, response);
                 break;
         }
     }

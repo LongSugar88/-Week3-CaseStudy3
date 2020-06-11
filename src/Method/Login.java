@@ -1,8 +1,6 @@
 package Method;
-
-import Controller.UserController;
-import User.User;
-
+import Method.User.FindUser;
+import Model.User;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +12,7 @@ public class Login {
     public static void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String user_name = request.getParameter("username");
         String user_password = request.getParameter("password");
-        User user = UserController.getUserByName(user_name);
+        User user = FindUser.getUserByName(user_name);
         if (user.getPassword().equalsIgnoreCase(user_password)) {
             HttpSession httpSession = request.getSession();
             httpSession.setAttribute("role", user.getRole());

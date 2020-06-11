@@ -14,7 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class UpdateUserByID {
-    private static final String UPDATE_USER_BY_ID = "UPDATE user SET name = ?, role = ?, password = ? WHERE id = ?";
+    private static final String UPDATE_USER_BY_ID = "UPDATE user SET username = ?, role = ?, password = ? WHERE id = ?";
     public static void update(User user){
         Connection connection = GetConnection.getConnect();
         try{
@@ -30,14 +30,14 @@ public class UpdateUserByID {
         }
     }
     public static void update(HttpServletRequest request, HttpServletResponse response){
-        String id = request.getParameter("newID");
+        String id = request.getParameter("id");
         String name = request.getParameter("newName");
         String role = request.getParameter("newRole");
         String password = request.getParameter("newPassword");
         User user = new User(id, name, role, password);
         update(user);
         try{
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("....");
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/FormUpdateUser.jsp");
             requestDispatcher.forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();

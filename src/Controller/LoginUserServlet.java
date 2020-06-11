@@ -1,9 +1,6 @@
 package Controller;
-
 import Method.Login;
 import Method.ShowFormLogin;
-import User.User;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(name = "UserServlet", urlPatterns = "/login")
+@WebServlet(name = "LoginUserServlet", urlPatterns = "/login")
 public class LoginUserServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
