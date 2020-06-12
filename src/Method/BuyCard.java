@@ -20,6 +20,29 @@ public class BuyCard {
     private static String username;
     private static List<Card> myList;
     private static UserServlet userServlet = new UserServlet();
+
+    public static boolean checkLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        boolean isLogin = false;
+        HttpSession httpSession = request.getSession();
+        Object o = httpSession.getAttribute("is_login");
+        if(o != null){
+            isLogin = Boolean.parseBoolean(o.toString());
+            if(!isLogin){
+                request.setAttribute("message", "Bạn cần đăng nhập để order! ");
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/Login.jsp");
+                requestDispatcher.forward(request, response);
+                return isLogin;
+            }
+            else
+                return isLogin;
+        }
+        else {
+            request.setAttribute("message", "Bạn cần đăng nhập để order! ");
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("View/Login.jsp");
+            requestDispatcher.forward(request, response);
+            return isLogin;
+        }
+    }
     public static boolean addCardToStorage(Card card) {
         if(UserServlet.getList().size() > 0){
             for (Card element : UserServlet.getList()) {
@@ -85,6 +108,7 @@ public class BuyCard {
          return myCardList;
      }
      public static void buy(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        checkLogin(request, response);
          HttpSession httpSession = request.getSession();
          Object o = httpSession.getAttribute("is_login");
          Object n = httpSession.getAttribute("name");

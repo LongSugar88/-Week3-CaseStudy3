@@ -224,7 +224,7 @@
                                 <b><p>${mycard.name}</p></b>
                             </div>
                             <div class="card_option">
-                                <button ><a href="./login">Mua</a></button>
+                                <button ><a href="./myUser?action=buy&id=${mycard.id}">Mua</a></button>
                             </div>
                         </div>
                     </div>
